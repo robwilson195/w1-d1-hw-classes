@@ -79,4 +79,10 @@ class Testclasses < MiniTest::Test
     team1 = SportsTeam.new("Scotland", ["Rob", "Alex"], "Pawel")
     assert_equal(false, team1.check_for_player("Nathan"))
   end
+
+  def test_change_points__win
+    team1 = SportsTeam.new("Scotland", ["Rob", "Alex"], "Pawel")
+    team1.change_points("win")
+    assert_equal(1, team1.points)
+  end
 end
