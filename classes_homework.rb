@@ -90,18 +90,27 @@ class Library
     end
     return nil
   end
+
+  def find_rental_details(book_name)
+    for book in @books
+      return book.rental_details if book.title == book_name
+    end
+    return nil
+  end
 end
 
 class Book
+
+  attr_reader :title, :rental_details, :student_name, :date
+
   def initialize(title, student_name, date)
     @title = title
+    @student_name = student_name
+    @date = date
     @rental_details = {
-      @student_name => student_name,
-      @date => date
+      student_name: @student_name,
+      date: @date 
     }
   end
 
-  def title
-    return @title
-  end
 end
