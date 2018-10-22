@@ -76,12 +76,11 @@ class SportsTeam
 end
 
 class Library
+
+  attr_reader :books
+
   def initialize(books)
     @books = books
-  end
-
-  def books
-    return @books
   end
 
   def book_info(book_name)
@@ -97,11 +96,38 @@ class Library
     end
     return nil
   end
+
+  def check_for_book(name)
+    for book in @books
+      return true if book.title == name
+    end
+    return false
+  end
+
+  def add_book_to_library(book_title)
+    @books << Book.new(book_title, "", "")
+  end
+
+  def edit_rental_details(book_title, new_renter, new_date)
+    for book in @books
+      if book.title == book_title
+        # This section suggests that the book class can be defined better.
+        book.rental_details[:student_name] = new_renter
+        # p book.student_name
+        book.student_name = new_renter
+        book.rental_details[:date] = new_date
+        # p book.date
+        book.date = new_date
+      end
+    end
+  end
 end
+
 
 class Book
 
-  attr_reader :title, :rental_details, :student_name, :date
+  attr_reader :title, :rental_details
+  attr_accessor :student_name, :date
 
   def initialize(title, student_name, date)
     @title = title
@@ -109,7 +135,7 @@ class Book
     @date = date
     @rental_details = {
       student_name: @student_name,
-      date: @date 
+      date: @date
     }
   end
 
