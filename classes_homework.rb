@@ -20,4 +20,11 @@ class CodeclanStudent
     @cohort = new_cohort
   end
 
+  def speak()
+    return "My name is #{@name}"
+  end
+
+  def say_favourite_language(language)
+    return "I love #{language}"
+  end
 end

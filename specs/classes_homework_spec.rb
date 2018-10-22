@@ -25,4 +25,14 @@ class Testclasses < MiniTest::Test
     student1.update_cohort("E23")
     assert_equal("E23", student1.cohort)
   end
+
+  def test_speak
+    student1 = CodeclanStudent.new("Alex", "E26")
+    assert_equal("My name is Alex", student1.speak())
+  end
+
+  def test_say_favourite_language
+    student1 = CodeclanStudent.new("Alex", "E26")
+    assert_equal("I love Ruby", student1.say_favourite_language("Ruby"))
+  end
 end
