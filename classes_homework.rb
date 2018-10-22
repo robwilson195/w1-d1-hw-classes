@@ -74,3 +74,23 @@ class SportsTeam
   end
 
 end
+
+class Library
+  def initialize(books)
+    @books = books
+  end
+
+  def books
+    return @books
+  end
+end
+
+class Book
+  def initialize(title, student_name, date)
+    @title = title
+    @rental_details = {
+      @student_name => student_name,
+      @date => date
+    }
+  end
+end
