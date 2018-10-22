@@ -30,21 +30,41 @@ class CodeclanStudent
 end
 
 class SportsTeam
+
+  attr_reader :team_name, :players
+  attr_accessor :coach
+
   def initialize(team_name, players, coach)
     @team_name = team_name
     @players = players
     @coach = coach
   end
 
-  def name
-    return @team_name
+  # def team_name
+  #   return @team_name
+  # end
+  #
+  # def players
+  #   return @players
+  # end
+  #
+  # def coach
+  #   return @coach
+  # end
+  #
+  # def change_coach(new_coach)
+  #   @coach = new_coach
+  # end
+
+  def add_new_player(new_player)
+    @players << new_player
   end
 
-  def players
-    return @players
+  def check_for_player(name)
+    for player in @players
+      return true if player == name
+    end
+    return false
   end
 
-  def coach
-    return @coach
-  end
 end
