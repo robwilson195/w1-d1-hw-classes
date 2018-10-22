@@ -35,4 +35,19 @@ class Testclasses < MiniTest::Test
     student1 = CodeclanStudent.new("Alex", "E26")
     assert_equal("I love Ruby", student1.say_favourite_language("Ruby"))
   end
+
+  def test_get_team_name
+    team1 = SportsTeam.new("Scotland", ["Rob", "Alex"], "Pawel")
+    assert_equal("Scotland", team1.name)
+  end
+
+  def test_get_team_players
+    team1 = SportsTeam.new("Scotland", ["Rob", "Alex"], "Pawel")
+    assert_equal(["Rob", "Alex"], team1.players)
+  end
+
+  def test_get_team_coach
+    team1 = SportsTeam.new("Scotland", ["Rob", "Alex"], "Pawel")
+    assert_equal("Pawel", team1.coach)
+  end
 end
