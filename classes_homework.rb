@@ -83,6 +83,13 @@ class Library
   def books
     return @books
   end
+
+  def book_info(book_name)
+    for book in @books
+      return book if book.title == book_name
+    end
+    return nil
+  end
 end
 
 class Book
@@ -92,5 +99,9 @@ class Book
       @student_name => student_name,
       @date => date
     }
+  end
+
+  def title
+    return @title
   end
 end
